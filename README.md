@@ -54,9 +54,9 @@ apt install iputils-ping -y
 # METHOD 1 — Connect Containers Using a Shared Network
 
 # Step 7: Create a Shared Network
-
+```bash
 docker network create shared
-
+```
 Check networks:
 ```bash
 docker network ls

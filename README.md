@@ -112,13 +112,6 @@ ping <container1-ip>
 
 # Remove Old Networks
 
-Disconnect Containers from Networks
-```bash
-docker network disconnect network1 container1
-```
-```bash
-docker network disconnect network2 container2
-```
 ```bash
 docker network disconnect shared container1
 ```

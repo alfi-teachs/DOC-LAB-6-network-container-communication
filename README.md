@@ -70,35 +70,44 @@ docker network connect shared container2
 ```
 # Step 9: Test Communication Between Containers
 
-Login to Container 1
+# Login to Container 1
 ```bash
 docker exec -it container1 /bin/bash
 ```
-Ping Container 2
-ping container2
-OR ping using container IP:
+```bash
 ping <container2-ip>
-
-Login to Container 2
+```
+# Login to Container 2
+```bash
 docker exec -it container2 /bin/bash
-Ping Container 1
-ping container1
-OR
+```
+```bash
 ping <container1-ip>
+```
 
-Remove Old Networks
+# Remove Old Networks
+
 Disconnect Containers from Networks
+```bash
 docker network disconnect network1 container1
+```
+```bash
 docker network disconnect network2 container2
+```
 
 Remove Networks
+```bash
 docker network rm network1
+```
+```bash
 docker network rm network2
-
+```
 METHOD 2 — Directly Connect Containers to Each Other’s Networks
+
 Instead of creating a shared network, connect each container to the other network.
 
 Step 1: Connect Container 2 to network1
+
 docker network connect network1 container2
 
 Step 2: Connect Container 1 to network2

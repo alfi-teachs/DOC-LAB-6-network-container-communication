@@ -14,46 +14,21 @@ docker network create network2
 docker network ls
 ```
 # Step 3: Create Containers in Different Networks
+
 Create Container 1 in network1
+
 ```bash
 docker run --name=container1 --network=network1 -d -p 1000:80 nginx
 ```
 Create Container 2 in network2
+
 ```bash
 docker run --name=container2 --network=network2 -d -p 2000:80 nginx
 ```
-# Step 4: Check Container Details
-```bash
-docker ps
-```
-```bash
-docker inspect container1
-```
-```bash
-docker inspect container2
-```
-# Step 5: Login Inside the Containers
 
-Enter Container 1
-```bash
-docker exec -it container1 /bin/bash
-```
-Enter Container 2
-```bash
-docker exec -it container2 /bin/bash
-```
-# Step 6: Install Ping Utility Inside Containers
-
-Run these commands inside both containers:
-```bash
-apt update
-```
-```bash
-apt install iputils-ping -y
-```
 # METHOD 1 — Connect Containers Using a Shared Network
 
-# Step 7: Create a Shared Network
+# Step 4 : Create a Shared Network
 ```bash
 docker network create shared
 ```
@@ -61,15 +36,16 @@ Check networks:
 ```bash
 docker network ls
 ```
-# Step 8: Connect Both Containers to Shared Network
+# Step 5: Connect Both Containers to Shared Network
+
 ```bash
 docker network connect shared container1
 ```
 ```bash
 docker network connect shared container2
 ```
-# Step 9
-inspect the containers if it is connected and copy the ip from shared network
+# Step 6
+Inspect the containers if it is connected and copy the ip from shared network
 
 ```bash
 docker ps
@@ -77,15 +53,32 @@ docker ps
 ```bash
 docker inspect container1
 ```
+GET IP OF SHARED NETWORK 
 ```bash
 docker ps
 ```
 ```bash
 docker inspect container2
 ```
+GET IP OF SHARED NETWORK 
 
+# Step 7: Login Inside the Containers
 
-# Step 10 : Test Communication Between Containers
+Enter Container 1
+```bash
+docker exec -it container1 /bin/bash
+```
+Install Ping Utility Inside Containers
+
+Run these commands inside both containers:
+
+```bash
+apt update
+```
+```bash
+apt install iputils-ping -y
+```
+# Step 8 : Test Communication Between Containers
 
 # Login to Container 1
 ```bash
@@ -94,7 +87,22 @@ docker exec -it container1 /bin/bash
 ```bash
 ping <container2-ip>
 ```
-# Login to Container 2
+# Step 9: Login Inside the Container2
+
+Enter Container 2
+```bash
+docker exec -it container2 /bin/bash
+```
+Install Ping Utility Inside Containers
+
+```bash
+apt update
+```
+```bash
+apt install iputils-ping -y
+```
+
+# Step 10 : Test Communication Between Containers
 ```bash
 docker exec -it container2 /bin/bash
 ```

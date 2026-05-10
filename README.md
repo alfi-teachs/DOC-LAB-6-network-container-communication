@@ -68,7 +68,24 @@ docker network connect shared container1
 ```bash
 docker network connect shared container2
 ```
-# Step 9: Test Communication Between Containers
+# Step 9
+inspect the containers if it is connected and copy the ip from shared network
+
+```bash
+docker ps
+```
+```bash
+docker inspect container1
+```
+```bash
+docker ps
+```
+```bash
+docker inspect container2
+```
+
+
+# Step 10 : Test Communication Between Containers
 
 # Login to Container 1
 ```bash

@@ -167,6 +167,11 @@ docker network rm network1
 ```bash
 docker network rm network2
 ```
+
+check containers 
+```bash
+docker ps
+```
 # remove containers
 ```bash
 docker rm -f container1

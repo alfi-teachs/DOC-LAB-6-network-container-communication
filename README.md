@@ -111,14 +111,6 @@ docker network disconnect network1 container1
 ```bash
 docker network disconnect network2 container2
 ```
-
-Remove Networks
-```bash
-docker network rm network1
-```
-```bash
-docker network rm network2
-```
 # METHOD 2 — Directly Connect Containers to Each Other’s Networks
 
 Instead of creating a shared network, connect each container to the other network.
@@ -146,4 +138,22 @@ docker exec -it container2 /bin/bash
 ```
 ```
 ping <container1-ip>
+```
+
+# Remove Old Networks
+
+Disconnect Containers from Networks
+```bash
+docker network disconnect network1 container1
+```
+```bash
+docker network disconnect network2 container2
+```
+
+# Remove Networks
+```bash
+docker network rm network1
+```
+```bash
+docker network rm network2
 ```

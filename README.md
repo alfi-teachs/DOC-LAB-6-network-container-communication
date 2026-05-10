@@ -102,28 +102,31 @@ docker network rm network1
 ```bash
 docker network rm network2
 ```
-METHOD 2 — Directly Connect Containers to Each Other’s Networks
+# METHOD 2 — Directly Connect Containers to Each Other’s Networks
 
 Instead of creating a shared network, connect each container to the other network.
 
-Step 1: Connect Container 2 to network1
-
+# Step 1: Connect Container 2 to network1
+```bash
 docker network connect network1 container2
-
-Step 2: Connect Container 1 to network2
+```
+# Step 2: Connect Container 1 to network2
+```bash
 docker network connect network2 container1
+```
+# Step 3: Test Connectivity
 
-Step 3: Test Connectivity
 Login to Container 1
+```bash
 docker exec -it container1 /bin/bash
-Ping Container 2
-ping container2
-OR
+```
+```bash
 ping <container2-ip>
-
+```
 Login to Container 2
+```bash
 docker exec -it container2 /bin/bash
-Ping Container 1
-ping container1
-OR
+```
+```
 ping <container1-ip>
+```

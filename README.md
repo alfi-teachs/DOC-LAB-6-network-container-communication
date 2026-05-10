@@ -111,6 +111,13 @@ docker network disconnect network1 container1
 ```bash
 docker network disconnect network2 container2
 ```
+```bash
+docker network disconnect shared container1
+```
+```bash
+docker network disconnect shared container2
+```
+
 # METHOD 2 — Directly Connect Containers to Each Other’s Networks
 
 Instead of creating a shared network, connect each container to the other network.
